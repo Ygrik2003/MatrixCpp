@@ -17,14 +17,14 @@ struct msize {
     int width;
     bool operator!=(msize a)
     {
-        return (height != a.height) && (width != a.width);
+        return (height != a.height) && ( width != a.width);
     }
 };
 
 class MatrixException
 {
 public:
-    enum errors
+    enum class Errors
     {
         SizeError, // Несоответствие размеров
         IndexError, // Обращение к несуществующему элементу
@@ -36,7 +36,7 @@ public:
         ReverseMatrixError, // Определитель равен нулю
     };
 
-    MatrixException(errors type, msize a = { 0, 0 }, msize b = { 0, 0 });
+    MatrixException(Errors type, msize a = {0, 0}, msize b = {0, 0});
     void printError();
 
 private:
@@ -45,11 +45,11 @@ private:
 
 class Matrix
 {
-public:
+public:  
     Matrix();
     Matrix(int height, int width);
     Matrix(msize);
-    Matrix(const Matrix&);
+    Matrix(const Matrix &);
 
     void setSize(int, int);
     void setSize(msize);
@@ -61,8 +61,8 @@ public:
     Matrix operator*(Matrix);
     Matrix operator*(const double);
     friend Matrix operator*(const double, Matrix);
-    Matrix operator/(const double);
-    Matrix& operator=(const Matrix);
+    Matrix operator/(double);
+    Matrix &operator=(const Matrix);
 
     vector<double> getRow(int i); // Получить i строку
     vector<double> getColumn(int j); // Получить j столбец
