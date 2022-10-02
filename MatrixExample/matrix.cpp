@@ -1,52 +1,5 @@
-#include "matrix.h"
+ï»¿#include "matrix.h"
 
-Matrix::Matrix()
-{
-    this->setSize(1, 1);
-}
-
-Matrix::Matrix(int height, int width)
-{
-    this->setSize(height, width);
-}
-
-Matrix::Matrix(msize size)
-{
-    this->setSize(size);
-}
-
-Matrix::Matrix(const Matrix& a)
-{
-    matrix = a.matrix;
-}
-
-void Matrix::setSize(int height, int width)
-{
-    if (height <= 0 || width <= 0)
-        throw MatrixException(MatrixException::Errors::IndexError, msize(height, width));
-
-    matrix.resize(height);
-    for (int i = 0; i < height; i++)
-        matrix[i].resize(width);
-}
-
-void Matrix::setSize(msize size)
-{
-    if (size.height <= 0 || size.width <= 0)
-        throw MatrixException(MatrixException::Errors::IndexError, size);
-
-    this->setSize(size.height, size.width);
-}
-
-int Matrix::size() const
-{
-    return this->matrix.size();
-}
-
-msize Matrix::getSize() const
-{
-    return msize(matrix.size(), matrix[0].size());
-}
 
 Matrix Matrix::operator+(Matrix matrix)
 {
@@ -269,7 +222,7 @@ double Matrix::det(vector<vector<double>> a)
         return a[0][0];
     double d = 0;
     vector<vector<double>> tmp;
-    for (int j = 0; j < a.size(); j++) { // Ðàçëîæåíèå ïî ïåðâîé ñòðîêå (i = 0)
+    for (int j = 0; j < a.size(); j++) { // ÃÃ Ã§Ã«Ã®Ã¦Ã¥Ã­Ã¨Ã¥ Ã¯Ã® Ã¯Ã¥Ã°Ã¢Ã®Ã© Ã±Ã²Ã°Ã®ÃªÃ¥ (i = 0)
         tmp = a;
         tmp.erase(tmp.begin() + 0);
         for (int i = 0; i < tmp.size(); i++)
