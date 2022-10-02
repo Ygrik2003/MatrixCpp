@@ -1,4 +1,4 @@
-#include "matrix.h"
+п»ї#include "matrix.h"
 
 Matrix::Matrix()
 {
@@ -269,7 +269,7 @@ double Matrix::det(vector<vector<double>> a)
         return a[0][0];
     double d = 0;
     vector<vector<double>> tmp;
-    for (int j = 0; j < a.size(); j++) { // Разложение по первой строке (i = 0)
+    for (int j = 0; j < a.size(); j++) { // Р Р°Р·Р»РѕР¶РµРЅРёРµ РїРѕ РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРµ (i = 0)
         tmp = a;
         tmp.erase(tmp.begin() + 0);
         for (int i = 0; i < tmp.size(); i++)
