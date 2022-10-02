@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="matrix.cpp" />
     <ClCompile Include="MatrixExample.cpp" />
   </ItemGroup>
   <ItemGroup>
